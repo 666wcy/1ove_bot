@@ -163,7 +163,7 @@ def start_status(message):
             text=f"剩余空间:`{hum_convert(qbt_client.sync_maindata().server_state.free_space_on_disk)}`"
             id_temp=bot.send_message(chat_id=message.chat.id,text=text,parse_mode='Markdown').message_id
             id_list.append(id_temp)
-            #time.sleep(20)
+            time.sleep(20)
             for message_id in id_list:
                 bot.delete_message(chat_id=message.chat.id,message_id=message_id)
 
@@ -184,7 +184,7 @@ def start_status(message):
             text=f"剩余空间:`{hum_convert(qbt_client.sync_maindata().server_state.free_space_on_disk)}`"
             id_temp=bot.send_message(chat_id=message.chat.id,text=text,parse_mode='Markdown').message_id
             id_list.append(id_temp)
-            #time.sleep(20)
+            time.sleep(20)
             for message_id in id_list:
                 bot.delete_message(chat_id=message.chat.id,message_id=message_id)
         else:
@@ -212,7 +212,6 @@ def start_download(message):
 
     except:
         print("down函数错误")
-
 
 @bot.message_handler(commands=['resume'],func=lambda message:str(message.chat.id) == str(Telegram_user_id))
 def start_start(message):
@@ -265,6 +264,20 @@ def start_start(message):
             bot.send_message(chat_id=Telegram_user_id,text=result)
     except:
         print("del函数错误")
+
+@bot.message_handler(commands=['help'])
+def start_start(message):
+    try:
+        text='''/status 查看所有种子状态
+/status hash 查看对应hash的种子状态
+/down 磁力链接 下载种子
+/resume hash 继续种子任务
+/pause hash 暂停种子任务
+/del hash 删除种子
+    '''
+        bot.send_message(chat_id=message.chat.id,text=text)
+    except:
+        print("help函数出错")
 
 if __name__ == '__main__':
     bot.enable_save_next_step_handlers(delay=2)
