@@ -4,6 +4,7 @@ import qbittorrentapi
 import time
 import json
 import telebot
+
 with open('/upload/config.json', 'r', encoding='utf-8') as f:
     conf = json.loads(f.read())
     f.close()
@@ -88,7 +89,7 @@ def get_all_status():
                  f"种子大小:`{hum_convert(torrent.total_size)}`\n" \
                  f"做种人数:`{torrent.num_complete}`\n" \
                   f'下载进度:`[{d}{b}]{percentage} `\n' \
-                  f"下载速度:`{hum_convert(torrent.dlspeed)}`\n" \
+                  f"下载速度:`{hum_convert(torrent.dlspeed)}/s`\n" \
                  f"下载用时:`{cal_time(torrent.time_active)}`\n" \
                  f"种子hash:`{torrent.hash}`"
         the_info.append(the_info_temp)
@@ -117,8 +118,8 @@ def get_solo_status(the_hash):
               f"种子状态:`{torrent.state}`\n" \
               f"种子大小:`{hum_convert(torrent.total_size)}`\n" \
              f"做种人数:`{torrent.num_complete}`\n" \
-             f'下载进度:`[{d}{b}]{percentage} `\n' \
-              f"下载速度:`{hum_convert(torrent.dlspeed)}`\n" \
+             f'下载进度:`[{d}{b}]{percentage}`\n' \
+              f"下载速度:`{hum_convert(torrent.dlspeed)}/s`\n" \
               f"下载用时:`{cal_time(torrent.time_active)}`\n" \
               f"种子hash:`{torrent.hash}`\n\n"
 
@@ -267,6 +268,7 @@ def start_start(message):
 
 @bot.message_handler(commands=['help'])
 def start_start(message):
+    print(message)
     try:
         text='''/status 查看所有种子状态
 /status hash 查看对应hash的种子状态
