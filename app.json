@@ -20,7 +20,13 @@
 			"rclone": {
 				"description": "rclone",
 				"value": ""
+			},
+			"QB_host": {
+				"description": "QB_host",
+				"value": ""
 			}
+
+			
 		}
 	
 }

@@ -2,7 +2,7 @@
 import json
 import os
 os.chdir(os.path.dirname(__file__))
-QB_port=os.environ.get('PORT')
+QB_host=os.environ.get('QB_host')
 Telegram_bot_api=os.environ.get('Telegram_bot_api')
 Telegram_user_id=os.environ.get('Telegram_user_id')
 Rule=os.environ.get('Rule')
@@ -35,7 +35,7 @@ def mkdir(path):
 
 print(f"Telegram_bot_api:{Telegram_bot_api}\n"
       f"Telegram_user_id:{Telegram_user_id}\n"
-      f"QB_port:{QB_port}\n"
+      f"QB_host:{QB_host}\n"
       f"Rule:{Rule}"
       f"rclone:{rclone}")
 
@@ -48,7 +48,7 @@ with open("/upload/config.json", "r",encoding='utf-8') as jsonFile:
     data = json.load(jsonFile)
     jsonFile.close()
 
-data["QB_port"] = QB_port
+data["QB_host"] = QB_host
 data["Telegram_bot_api"] = Telegram_bot_api
 data["Telegram_user_id"] = Telegram_user_id
 

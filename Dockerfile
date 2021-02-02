@@ -4,12 +4,8 @@ RUN apt-get update
 RUN apt-get install sudo
 RUN sudo apt-get update
 
-RUN sudo apt-get install software-properties-common -y
-
-RUN sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
 
 RUN sudo apt-get update
-RUN sudo apt-get install qbittorrent-nox -y
 
 RUN apt-get install yum -y
 RUN apt-get install wget -y
