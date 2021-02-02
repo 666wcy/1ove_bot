@@ -11,10 +11,9 @@ from qb import *
 import telebot
 import datetime
 import shutil
-from telebot import types
 os.chdir(os.path.dirname(__file__))
-
-
+print("开始上传")
+sys.stdout.flush()
 Torrents_name = sys.argv[1]         #名称
 
 Torrents_category = sys.argv[2]     #类别
@@ -58,9 +57,6 @@ def send_telegram(upload_dir,upload_time):
         else:
             last_time="%d秒" % s
         bot = telebot.TeleBot(Telegram_bot_api)
-        markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("复制资源", url="https://xzgfwacnz0-my.sharepoint.com/:f:/g/personal/bot-01_1ove_club/Em14Tj4AwPxAsuQjco1iPagBRZSl6_iA2FFpdhZMpik70w?e=mlSkac"))
-
         log = f"种子名称：`{Torrents_name}`\n" \
               f"种子类别：`{Torrents_category}`\n" \
               f"种子标签：`{Torrents_tag}`\n" \
@@ -72,7 +68,7 @@ def send_telegram(upload_dir,upload_time):
               f"HASH:`{Torrents_hash}`\n" \
               f"上传地址:`{upload_dir}`\n" \
               f"上传用时:`{last_time}`\n"
-        bot.send_message(chat_id=Telegram_user_id,text=log,parse_mode='Markdown', reply_markup=markup)
+        bot.send_message(chat_id=Telegram_user_id,text=log,parse_mode='Markdown')
 
     else:
         return
@@ -163,7 +159,8 @@ if __name__ == '__main__':
             if time=="0" and share_rate=="0" and emby=="false" :
                 print("直接调用rclone")
                 if int(Torrents_num)==1:
-                    print(Torrents_content_dir)		
+                    print(Torrents_content_dir)
+
                     for remote ,upload_lu in zip(Remote_list,Upload_list):
                         starttime = datetime.datetime.now()
                         remote_dir=start_upload(Torrents_content_dir,"",remote,upload_lu)  #单文件测试完成
@@ -173,6 +170,7 @@ if __name__ == '__main__':
 
                     if delete=="true":
                         del_torrent(Torrents_hash)
+
 
                     break
                 else:
