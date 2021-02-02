@@ -23,7 +23,7 @@ RUN python3 get-pip.py
 
 RUN pip3 install pyTelegramBotAPI
 RUN pip3 install qbittorrent-api
-
+RUN pip3 install pytz
 RUN sudo apt-get install cron -y
 
 RUN sudo /usr/sbin/service cron start 
