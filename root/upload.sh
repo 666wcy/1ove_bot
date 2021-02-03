@@ -22,8 +22,8 @@ leeching_mode="true"  #true为自动删除上传的种子
 auto_del_flag="rclone"   #上传完成后将种子标记的标签
 
 tg_if="true"  #上传完成用Tg bot 进行通知，如果不开启下面两项不需要填,true为开启
-chat_id=$Telegram_user_id #用户id，通过 @userinfobot 获取
-bot_api=$Telegram_bot_api #自己申请的bot的API
+chat_id="${Telegram_user_id}" #用户id，通过 @userinfobot 获取
+bot_api="${Telegram_bot_api}" #自己申请的bot的API
 
 #bash /upload/qb_auto.sh  "%N" "%F" "%R" "%D" "%C" "%Z" "%I"
 echo "bash /upload/qb_auto.sh  ${torrent_name} ${content_dir} ${root_dir} ${save_dir} ${files_num} ${torrent_size} ${file_hash}"
