@@ -13,8 +13,8 @@
 				"description": "Telegram ID",
 				"value": ""
 			},
-			"Rule": {
-				"description": "upload",
+			"Remote": {
+				"description": "upload Remote",
 				"value": ""
 			},
 			"rclone": {
