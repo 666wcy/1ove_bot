@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-chmod 0777 /upload/ -R
-python3 /upload/config.py
-nohup yes "" | qbittorrent-nox --webui-port=$PORT --profile=/config &
-python3 /upload/bot.py
+chmod 0777 upload.sh
+mkdir  /root/.config/rclone/
+echo "${rclone}" >> /root/.config/rclone/rclone.conf
+
+#nohup yes "" | qbittorrent-nox --webui-port=$PORT --profile=/config &

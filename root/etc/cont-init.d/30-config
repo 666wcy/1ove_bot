@@ -1,17 +1,17 @@
 #!/usr/bin/with-contenv bash
 
-# 检查config配置文件，并创建
-if [ ! -e "/config/qBittorrent/config/qBittorrent.conf" ] ;  then 
-mkdir -p /config/qBittorrent/config/
-cp /usr/local/qbittorrent/defaults/qBittorrent.conf  /config/qBittorrent/config/qBittorrent.conf
-fi
+# make our folder
+mkdir -p /config/qBittorrent
 
-# 检查Search文件，并创建.
-if [ ! -d "/config/qBittorrent/data/nova3/engines" ] ;  then 
-mkdir -p /config/qBittorrent/data/nova3/engines
+# copy config
+[[ ! -e /config/qBittorrent/qBittorrent.conf ]] && \
+	cp /defaults/qBittorrent.conf /config/qBittorrent/qBittorrent.conf
+
+# chown download directory if currently not set to abc
+if [[ "$(stat -c '%U' /downloads)" != "abc" ]]; then
+	chown -R abc:abc /downloads
 fi
-cp -ru /usr/local/qbittorrent/defaults/Search/*  /config/qBittorrent/data/nova3/engines
 
 # permissions
-chown -R /config \
-    /downloads
+chown -R abc:abc \
+	/config
