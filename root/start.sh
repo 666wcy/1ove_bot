@@ -2,7 +2,5 @@
 
 #mkdir  /root/.config/rclone/
 #echo "${rclone}" >> /root/.config/rclone/rclone.conf
-ulimit -m 514400
-#ulimit -v 314400
 yes "" | qbittorrent-nox --webui-port=$PORT
 #nohup yes "" | qbittorrent-nox --webui-port=$PORT --profile=/config &
