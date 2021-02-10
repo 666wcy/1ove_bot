@@ -14,6 +14,7 @@ RUN python3 get-pip.py
 RUN pip3 install pyTelegramBotAPI
 RUN pip3 install qbittorrent-api
 RUN pip3 install apscheduler
+RUN pip3 install pytz
 
 RUN sudo chmod 777 /qbittorrent-nox
 RUN mv /qbittorrent-nox /usr/bin/
