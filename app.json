@@ -5,35 +5,51 @@
 	"keywords": ["telegram"],
 	"stack": "container",
 	"env": {
-			"Telegram_bot_api": {
-				"description": "API",
+			"Remote": {
+				"description": "Remote",
+				"value": ""
+			},
+			"Aria2_secret": {
+				"description": "Aria2_secret",
+				"value": ""
+			},
+			"Rclone": {
+				"description": "Rclone",
+				"value": ""
+			},
+			"Upload": {
+				"description": "Upload",
 				"value": ""
 			},
 			"Telegram_user_id": {
-				"description": "Telegram ID",
+				"description": "Telegram_user_id",
 				"value": ""
 			},
-			"Rule": {
-				"description": "upload",
+			"Telegram_bot_api": {
+				"description": "Telegram_bot_api",
 				"value": ""
 			},
-			"rclone": {
-				"description": "rclone",
-				"value": ""
+			"Title": {
+				"description": "Title",
+				"value":""
 			},
-			"title": {
-				"description": "title",
-				"value": ""
+			"Api_hash": {
+				"description": "Api_hash",
+				"value":""
 			},
-			"Username": {
-				"description": "Username",
-				"value": ""
+			"Api_id": {
+				"description": "Api_id",
+				"value":""
 			},
-			"Password": {
-				"description": "Password",
-				"value": ""
-			}
 
+			"git_admin": {
+				"description": "git_admin",
+				"value":""
+			},
+			"git_pass": {
+				"description": "git_pass",
+				"value":""
+			}
 		}
 	
 }
